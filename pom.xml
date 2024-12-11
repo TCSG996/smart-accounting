@@ -1,0 +1,27 @@
+<dependencies>
+    <!-- Chart.js -->
+    <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>chart.js</artifactId>
+        <version>3.7.0</version>
+    </dependency>
+    
+    <!-- Excel 处理 -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>5.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>5.0.0</version>
+    </dependency>
+    
+    <!-- CSV 处理 -->
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-csv</artifactId>
+        <version>1.8</version>
+    </dependency>
+</dependencies> 

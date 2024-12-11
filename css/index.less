@@ -1,0 +1,482 @@
+// 全局样式
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 70px;
+}
+
+// 顶部导航栏
+.app-header {
+    background: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    .month-picker {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .sync-btn {
+        background: none;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: #666;
+        }
+    }
+}
+
+// 账户总览
+.account-overview {
+    padding: 20px;
+
+    .balance-card {
+        background: linear-gradient(135deg, #00b4db, #0083b0);
+        border-radius: 20px;
+        padding: 25px;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+        h2 {
+            font-size: 16px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+
+            .stat-item {
+                display: flex;
+                flex-direction: column;
+                
+                span:first-child {
+                    font-size: 14px;
+                    opacity: 0.8;
+                }
+
+                .income {
+                    color: #4cd964;
+                }
+
+                .budget {
+                    color: #ffcc00;
+                }
+            }
+        }
+    }
+}
+
+// 快速记账
+.quick-add {
+    padding: 20px;
+
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+
+            .icon {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            span {
+                font-size: 14px;
+                color: #666;
+            }
+        }
+    }
+}
+
+// 最近记录
+.recent-records {
+    padding: 20px;
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+        h3 {
+            font-size: 18px;
+        }
+
+        .view-all {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    }
+
+    .record-list {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+
+        .record-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f5f5f5;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .record-icon {
+                width: 40px;
+                height: 40px;
+                background: #f5f5f5;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                margin-right: 15px;
+            }
+
+            .record-info {
+                flex: 1;
+
+                .record-title {
+                    font-size: 16px;
+                }
+
+                .record-time {
+                    font-size: 12px;
+                    color: #999;
+                }
+            }
+
+            .record-amount {
+                font-weight: 500;
+
+                &.expense {
+                    color: #ff3b30;
+                }
+
+                &.income {
+                    color: #4cd964;
+                }
+            }
+        }
+    }
+}
+
+// 底部导航栏
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #666;
+
+        &.active {
+            color: #00b4db;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+            fill: currentColor;
+        }
+
+        span {
+            font-size: 12px;
+        }
+
+        &.center-item {
+            .add-button {
+                width: 50px;
+                height: 50px;
+                background: #00b4db;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: -25px;
+                box-shadow: 0 4px 10px rgba(0,180,219,0.3);
+
+                .icon {
+                    width: 30px;
+                    height: 30px;
+                    fill: white;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+// 记账弹窗样式
+.add-record-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 20px;
+        overflow: hidden;
+        animation: slideUp 0.3s ease;
+
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h3 {
+                margin: 0;
+                font-size: 18px;
+            }
+
+            .close-btn {
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #999;
+                cursor: pointer;
+            }
+        }
+
+        .modal-body {
+            padding: 20px;
+
+            .amount-input {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .currency {
+                    font-size: 24px;
+                    margin-right: 10px;
+                    color: #333;
+                }
+
+                input {
+                    flex: 1;
+                    font-size: 24px;
+                    border: none;
+                    outline: none;
+                    text-align: right;
+                }
+            }
+
+            .category-select {
+                margin-bottom: 20px;
+
+                select, .selected-category {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    background: white;
+                }
+
+                .selected-category {
+                    cursor: pointer;
+                    position: relative;
+                    padding-right: 30px;
+
+                    &::after {
+                        content: '▼';
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 12px;
+                        color: #999;
+                    }
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+
+            .note-input {
+                margin-bottom: 20px;
+
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                }
+            }
+
+            .date-input {
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            button {
+                padding: 8px 20px;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+
+                &.cancel-btn {
+                    background: #f5f5f5;
+                    color: #666;
+                }
+
+                &.save-btn {
+                    background: #00b4db;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// 统计图表样式
+.statistics-section {
+    padding: 20px;
+    
+    .chart-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            
+            h3 {
+                margin-bottom: 15px;
+                font-size: 16px;
+                color: #333;
+            }
+            
+            canvas {
+                width: 100% !important;
+                height: 250px !important;
+            }
+        }
+    }
+}
+
+// 操作按钮样式
+.action-buttons {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    
+    button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #00b4db;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        
+        &:hover {
+            background: #0083b0;
+        }
+        
+        &.import-btn {
+            background: #4cd964;
+            
+            &:hover {
+                background: #3cb371;
+            }
+        }
+    }
+}
